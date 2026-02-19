@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.stockapp.controller.CategoriesController"
+      spacing="12" styleClass="page">
+
+    <Label text="Kategoriler" styleClass="page-title"/>
+
+    <HBox spacing="10">
+        <TextField fx:id="nameField" promptText="Kategori adı (örn: Yağ,civata)" HBox.hgrow="ALWAYS"/>
+        <Button fx:id="addBtn" text="Ekle" onAction="#add" styleClass="btn-success"/>
+        <Button fx:id="removeBtn" text="Sil" onAction="#removeSelected" styleClass="btn-danger"/>
+    </HBox>
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="nameCol" text="Kategori"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="statusLabel" text="" />
+</VBox>

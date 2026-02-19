@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.stockapp.controller.CriticalStockDialogController"
+      spacing="12" prefWidth="650" prefHeight="420" stylesheets="@/styles/app.css">
+
+    <Label text="Kritik Stok (Stok &lt; 10)" styleClass="page-title"/>
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colName" text="Ürün" prefWidth="260"/>
+            <TableColumn fx:id="colBarcode" text="Barkod" prefWidth="180"/>
+            <TableColumn fx:id="colStock" text="Stok" prefWidth="80"/>
+            <TableColumn fx:id="colPrice" text="Fiyat" prefWidth="90"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Yenile" onAction="#refresh" styleClass="btn-secondary"/>
+        <Button text="Kapat" onAction="#close" styleClass="btn-secondary"/>
+    </HBox>
+
+</VBox>

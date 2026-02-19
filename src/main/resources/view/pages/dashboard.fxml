@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.stockapp.controller.DashboardController"
+      spacing="20">
+
+    <Label text="Gösterge Paneli" styleClass="page-title"/>
+
+    <HBox spacing="16">
+
+        <VBox styleClass="card" spacing="6">
+            <Label text="Toplam Ürün"/>
+            <Label fx:id="totalProductsLabel" text="0" styleClass="card-value"/>
+        </VBox>
+
+        <VBox styleClass="card" spacing="6">
+            <Label text="Bu Ay Satış (Adet)"/>
+            <Label fx:id="monthlySalesLabel" text="0" styleClass="card-value"/>
+        </VBox>
+
+
+        <VBox styleClass="card" spacing="6">
+            <Label text="Kritik Stok"/>
+            <Label fx:id="criticalCountLabel"
+                   text="0"
+                   styleClass="card-value"/>
+        </VBox>
+
+    </HBox>
+</VBox>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.stockapp.controller.MainController">
+
+    <top>
+        <HBox spacing="12" styleClass="app-header">
+            <Label text="Stok Yönetimi" styleClass="app-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <TextField fx:id="globalSearchField"
+                       promptText="Ürün ara / barkod..."
+                       onAction="#onGlobalSearch"/>
+
+            <Button onAction="#openCriticalStockDialog" styleClass="bell-btn">
+                <graphic>
+                    <StackPane>
+                        <!-- Zil -->
+                        <Label text="🔔" styleClass="bell-icon"/>
+
+                        <!-- Bildirim noktası (badge) -->
+                        <Label fx:id="bellBadge" text="" styleClass="bell-badge" visible="false"/>
+                    </StackPane>
+                </graphic>
+            </Button>
+
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="8" styleClass="app-sidebar">
+            <Label text="MENÜ" styleClass="sidebar-title"/>
+            <Button text="Gösterge Paneli" styleClass="nav-btn" onAction="#goDashboard"/>
+            <Button text="Raporlar" styleClass="nav-btn" onAction="#goReports"/>
+            <Button text="Satış" styleClass="nav-btn" onAction="#goSales"/>
+            <Button text="Ürün Ve Stok Girişi" styleClass="nav-btn" onAction="#goStockEntry"/>
+            <Button text="Ürünler" styleClass="nav-btn" onAction="#goProducts"/>
+            <Button text="Kategoriler" styleClass="nav-btn" onAction="#goCategories"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Label text="v1.0" styleClass="sidebar-footer"/>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentPane" styleClass="app-content"/>
+    </center>
+
+</BorderPane>

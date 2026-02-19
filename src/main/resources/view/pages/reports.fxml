@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.stockapp.controller.ReportsController"
+      spacing="12" styleClass="page">
+
+    <Label text="Raporlar" styleClass="page-title"/>
+
+    <HBox spacing="10">
+        <Label text="Başlangıç:"/>
+        <DatePicker fx:id="fromDate"/>
+
+        <Label text="Bitiş:"/>
+        <DatePicker fx:id="toDate"/>
+
+        <Button text="Raporu Getir" onAction="#loadReports" styleClass="btn-primary"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label text="Ciro:" style="-fx-font-weight:700;"/>
+        <Label fx:id="revenueLabel" text="0.00" style="-fx-font-size:16px; -fx-font-weight:900;"/>
+    </HBox>
+
+    <!-- ✅ fx:id eklendi -->
+    <TabPane fx:id="reportsTabs" VBox.vgrow="ALWAYS">
+        <tabs>
+            <Tab text="Ürün Performansı" closable="false">
+                <VBox spacing="10" style="-fx-padding:10;">
+
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Seçilen aralıkta ürünlerin satış performansı (adet)"
+                               style="-fx-font-weight:700;"/>
+
+                        <Region HBox.hgrow="ALWAYS"/>
+
+                        <TextField fx:id="topProductSearchField"
+                                   promptText="Ürün / barkod ara..."
+                                   prefWidth="220"/>
+                    </HBox>
+
+                    <TableView fx:id="topProductsTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="tpNameCol" text="Ürün" prefWidth="260"/>
+                            <TableColumn fx:id="tpBarcodeCol" text="Barkod" prefWidth="170"/>
+                            <TableColumn fx:id="tpQtyCol" text="Toplam Adet" prefWidth="120"/>
+                        </columns>
+                    </TableView>
+
+                </VBox>
+            </Tab>
+
+            <Tab text="Kategori Bazlı" closable="false">
+                <VBox spacing="10" style="-fx-padding:10;">
+                    <Label text="Kategori bazlı satış (adet + ciro)" style="-fx-font-weight:700;"/>
+                    <TableView fx:id="categoryTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="catNameCol" text="Kategori" prefWidth="260"/>
+                            <TableColumn fx:id="catQtyCol" text="Toplam Adet" prefWidth="120"/>
+                            <TableColumn fx:id="catRevenueCol" text="Ciro" prefWidth="140"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+            <Tab text="Günlük Ciro Grafiği" closable="false">
+                <VBox spacing="10" style="-fx-padding:10;">
+                    <Label text="Günlük toplam ciro" style="-fx-font-weight:700;"/>
+                    <LineChart fx:id="revenueChart" VBox.vgrow="ALWAYS">
+                        <xAxis>
+                            <CategoryAxis fx:id="xAxis"/>
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis fx:id="yAxis"/>
+                        </yAxis>
+                    </LineChart>
+                </VBox>
+            </Tab>
+
+            <!-- ✅ Bu Tab'a fx:id eklendi -->
+            <Tab fx:id="tabSalesHistory" text="Fiş Geçmişi" closable="false">
+                <VBox spacing="10" style="-fx-padding:10;">
+                    <HBox spacing="10">
+                        <Label text="Fişler" style="-fx-font-weight:700;"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button text="Detay Göster" onAction="#showSelectedReceipt" styleClass="btn-secondary"/>
+                    </HBox>
+
+                    <TableView fx:id="salesTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="saleIdCol" text="Fiş No" prefWidth="120"/>
+                            <TableColumn fx:id="saleDateCol" text="Tarih" prefWidth="220"/>
+                            <TableColumn fx:id="saleTotalCol" text="Toplam" prefWidth="140"/>
+                        </columns>
+                    </TableView>
+
+                    <Label text="İpucu: Fişe çift tıklayınca da detay açılır."/>
+                </VBox>
+            </Tab>
+
+        </tabs>
+    </TabPane>
+
+    <Label fx:id="statusLabel" text=""/>
+</VBox>

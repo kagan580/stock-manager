@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.stockapp.controller.ProductDialogController"
+      spacing="12" style="-fx-padding:16;" stylesheets="@/styles/app.css">
+
+    <Label fx:id="titleLabel" text="Ürün" style="-fx-font-size:18px; -fx-font-weight:700;"/>
+
+    <GridPane hgap="10" vgap="10">
+        <Label text="Barkod:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="barcodeField" editable="false" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Ürün Adı:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="nameField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Kategori:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="categoryBox" prefWidth="260" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Fiyat:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="priceField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Miktar:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextField fx:id="qtyField" promptText="Boşsa 1" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10" style="-fx-alignment:center-right;">
+        <Button fx:id="primaryBtn" text="Kaydet" onAction="#onPrimary" styleClass="btn-primary"/>
+        <Button fx:id="secondaryBtn" text="+ Ekle" onAction="#onSecondary" styleClass="btn-success"/>
+        <Button fx:id="decreaseBtn" text="- Düş" onAction="#onDecrease" styleClass="btn-warning"/>
+        <Button text="İptal" onAction="#onCancel" styleClass="btn-secondary"/>
+    </HBox>
+
+    <Label fx:id="msgLabel" text="" />
+</VBox>

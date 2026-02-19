@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.stockapp.controller.StockEntryController"
+      spacing="12" styleClass="page">
+
+    <Label text="Ürün Ve Stok Girişi" styleClass="page-title"/>
+
+    <HBox spacing="10">
+        <TextField fx:id="barcodeField" promptText="Barkod okut ve Enter'a bas" HBox.hgrow="ALWAYS"/>
+        <Button text="Kontrol" onAction="#onScan" styleClass="btn-primary"/>
+    </HBox>
+
+    <Label fx:id="statusLabel" text="Barkod okut." />
+</VBox>

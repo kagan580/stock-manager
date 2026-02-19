@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.stockapp.controller.ReceiptDialogController"
+      spacing="12" style="-fx-padding:16;" stylesheets="@/styles/app.css">
+
+    <Label text="Fiş Detayı" style="-fx-font-size:18px; -fx-font-weight:800;"/>
+
+    <HBox spacing="12">
+        <Label text="Fiş No:" style="-fx-font-weight:700;"/>
+        <Label fx:id="saleIdLabel" text="-"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label text="Tarih:" style="-fx-font-weight:700;"/>
+        <Label fx:id="saleDateLabel" text="-"/>
+    </HBox>
+
+    <TableView fx:id="itemsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="rNameCol" text="Ürün" prefWidth="240"/>
+            <TableColumn fx:id="rBarcodeCol" text="Barkod" prefWidth="160"/>
+            <TableColumn fx:id="rQtyCol" text="Adet" prefWidth="80"/>
+            <TableColumn fx:id="rUnitCol" text="Fiyat" prefWidth="100"/>
+            <TableColumn fx:id="rTotalCol" text="Tutar" prefWidth="120"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" style="-fx-alignment:center-right;">
+        <Label text="TOPLAM:" style="-fx-font-size:16px; -fx-font-weight:800;"/>
+        <Label fx:id="totalLabel" text="0.00" style="-fx-font-size:18px; -fx-font-weight:900;"/>
+    </HBox>
+
+    <HBox spacing="10" style="-fx-alignment:center-right;">
+        <Button text="Kapat" onAction="#close" styleClass="btn-secondary"/>
+    </HBox>
+
+    <Label fx:id="msgLabel" text=""/>
+</VBox>

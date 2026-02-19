@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.stockapp.controller.ProductsController"
+      spacing="12" styleClass="page">
+
+    <Label text="Ürünler" styleClass="page-title"/>
+
+    <HBox spacing="10">
+        <TextField fx:id="searchField" promptText="Ara: ürün adı / barkod" HBox.hgrow="ALWAYS"/>
+
+        <Button text="Yenile" onAction="#refresh" styleClass="btn-secondary"/>
+<!--        <Button text="Yeni Ürün" onAction="#newProduct"/>-->
+    </HBox>
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="nameCol" text="Ürün" prefWidth="240"/>
+            <TableColumn fx:id="barcodeCol" text="Barkod" prefWidth="170"/>
+            <TableColumn fx:id="categoryCol" text="Kategori" prefWidth="160"/>
+            <TableColumn fx:id="stockCol" text="Stok" prefWidth="90"/>
+            <TableColumn fx:id="priceCol" text="Fiyat" prefWidth="110"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10">
+        <Button text="+ Artır" onAction="#incStockSelected" styleClass="btn-success"/>
+        <Button text="- Düş" onAction="#decStockSelected" styleClass="btn-warning"/>
+        <Button text="Stok = Yap" onAction="#setStockSelected" styleClass="btn-primary"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Düzenle" onAction="#editSelected" styleClass="btn-primary"/>
+        <Button text="Sil" onAction="#deleteSelected" styleClass="btn-danger"/>
+
+    </HBox>
+
+    <Label fx:id="statusLabel" text=""/>
+</VBox>

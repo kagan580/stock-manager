@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.stockapp.controller.SalesController"
+      spacing="12" styleClass="page">
+
+    <Label text="Satışlar" styleClass="page-title"/>
+
+    <HBox spacing="10">
+        <TextField fx:id="barcodeField" promptText="Barkod okut (Enter)" HBox.hgrow="ALWAYS"/>
+        <TextField fx:id="qtyField" promptText="Adet (boş=1)" prefWidth="120"/>
+
+        <Button fx:id="incBtn" text="+1" onAction="#incSelected" styleClass="btn-success"/>
+        <Button fx:id="decBtn" text="-1" onAction="#decSelected" styleClass="btn-warning"/>
+
+        <Button fx:id="setQtyBtn" text="Adet Ayarla" onAction="#setQtyDialog" styleClass="btn-primary"/>
+        <Button fx:id="deleteBtn" text="Seçileni Sil" onAction="#deleteSelected" styleClass="btn-danger"/>
+
+        <Button fx:id="finishSaleBtn" text="Satışı Bitir" onAction="#finishSale" styleClass="btn-success"/>
+        <Button fx:id="clearCartBtn" text="Sepeti Temizle" onAction="#clearCart" styleClass="btn-secondary"/>
+    </HBox>
+
+    <Label fx:id="statusLabel" text="Barkod okut." />
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="nameCol" text="Ürün" prefWidth="260"/>
+            <TableColumn fx:id="barcodeCol" text="Barkod" prefWidth="180"/>
+            <TableColumn fx:id="qtyCol" text="Adet" prefWidth="80"/>
+            <TableColumn fx:id="unitPriceCol" text="Fiyat" prefWidth="120"/>
+            <TableColumn fx:id="lineTotalCol" text="Tutar" prefWidth="120"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" style="-fx-alignment:center-right;">
+        <Label text="TOPLAM:" style="-fx-font-size:16px; -fx-font-weight:800;"/>
+        <Label fx:id="grandTotalLabel" text="0.00" style="-fx-font-size:18px; -fx-font-weight:900;"/>
+    </HBox>
+
+</VBox>
